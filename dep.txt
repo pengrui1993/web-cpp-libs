@@ -1,0 +1,8 @@
+glog
+googletest
+json
+boost
+redis
+mysql:boost
+rabbitmq:boost
+
