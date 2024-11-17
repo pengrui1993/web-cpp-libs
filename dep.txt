@@ -6,3 +6,4 @@ redis
 mysql:boost
 rabbitmq:boost
 
+openssl

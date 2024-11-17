@@ -1,3 +1,14 @@
+#required cmake 3.22 or later
+#ubuntu 
+#g++:sudo apt install build-essential
+#openssl:sudo apt install libssl-dev
+#boost:sudo apt install libboost-dev
+#hiredis:sudo apt install libhiredis-dev
+
+#macos
+#openssl:brew install openssl
+#boot:brew install boost
+#hiredis:brew install hiredis
 CXXFLAGS += -std=c++17
 HTTP_SERVER_INCLUDE:=./_demo_httplib/build
 HTTP_SERVER_LIB:=$(HTTP_SERVER_INCLUDE)
