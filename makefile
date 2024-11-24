@@ -1,12 +1,17 @@
 #required cmake 3.22 or later
-#ubuntu 
+#libs
+#on ubuntu 
 #g++:sudo apt install build-essential
+#glog:sdo apt install libgoogle-glog-dev
+#gtest:sudo apt install libgtest-dev
 #openssl:sudo apt install libssl-dev
 #boost:sudo apt install libboost-dev
 #hiredis:sudo apt install libhiredis-dev
 
-#macos
+#on macos
 #openssl:brew install openssl
+#glog:brew install glog
+#gtest:brew install googletest
 #boot:brew install boost
 #hiredis:brew install hiredis
 CXXFLAGS += -std=c++17
@@ -19,10 +24,12 @@ REDIS_LIB:=$(REDIS_DIR)/lib
 SHARED_INCLUDE:=/opt/homebrew/include
 SHARED_LIB:=/opt/homebrew/lib
 
+MYSQL_INCLUDE:=./mysql/include
 RABBIT_DIR:=./_demo_rabbitmq/build/pkg
 RABBIT_INCLUDE:=$(RABBIT_DIR)/include
 RABBIT_LIB:=$(RABBIT_DIR)/lib
 CXXFLAGS += -I$(HTTP_SERVER_INCLUDE) \
+		-I$(MYSQL_INCLUDE) \
 		-I$(JSON_INCLUDE) \
 		-I$(REDIS_INCLUDE) \
 		-I${SHARED_INCLUDE} \
@@ -42,6 +49,7 @@ LDFLAGS += -L${HTTP_SERVER_LIB} \
 	$(shell pkg-config --libs hiredis) \
 	$(shell pkg-config --libs openssl)
 
-LDLIBS += -lboost_charconv -lcpp-httplib -lredis++ -lamqpcpp -lpthread \
-		-pthread json.cc log.cc redis.cc mysql.cc rabbit.cc sync.cc
+LDLIBS += -lboost_charconv -lcpp-httplib -lglog -lredis++ -lamqpcpp -lpthread \
+		-pthread json.cc log.cc redis.cc \
+		rabbit.cc sync.cc mysql.cc 
 # lboost_charconv for mysql

@@ -1,6 +1,7 @@
 #include<functional>
 #include<thread>
 #include<mutex>
+#include<condition_variable>
 #include<queue>
 #include<iostream>
 #include"sync.h"

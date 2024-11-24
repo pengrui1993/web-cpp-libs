@@ -6,3 +6,5 @@ json		git@github.com:nlohmann/json.git
 mysql		git@github.com:boostorg/mysql.git
 redis++		git@github.com:sewenew/redis-plus-plus.git
 rabbitmq	git@github.com:CopernicaMarketingSoftware/AMQP-CPP.git
+
+boost
